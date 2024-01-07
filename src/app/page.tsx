@@ -5,7 +5,7 @@ import { type Framework, frameworks } from "@/utils/frameworkUtils";
 import { useState, useEffect } from "react";
 import { cn } from "@/utils/tailwindUtils";
 import { Poppins } from "next/font/google";
-import { FrameworkRotation } from "@/components/framework-ratation";
+import { FrameworkRotation } from "@/components/frameworkRotation";
 
 const poppins = Poppins ({
   weight: "700",
@@ -18,10 +18,10 @@ export default function Page() {
   const [showBackground, setShowBackground] = useState(false)  
 
   useEffect(() => {
-    let currentFrameworks = 0
+    let currentIndex = 0;
     const rotateFrameworks = () => {
-      setcurrentFramework(frameworks[currentIndex])
-      currentIndex = (currentIndex +1) % frameworks.length 
+      setcurrentFramework(frameworks[currentIndex]);
+      currentIndex = (currentIndex + 1) % frameworks.length; 
     };
     const intervalId = setInterval(rotateFrameworks, 2000)
     return () => clearInterval(intervalId);
@@ -34,7 +34,7 @@ export default function Page() {
   return (
     <main>
       <div
-      className={cn("fixed inset-0 transtition-color delay-100 duration-700 opacity-25",
+      className={cn("fixed inset-0 transtition-color delay-100 duration-700 opacity-30",
       {
         "bg-purple-300": currentFramework === "qwik",
         "bg-sky-300": currentFramework === "safari",
@@ -72,7 +72,7 @@ export default function Page() {
       )}
     />
 
-    <div className="max-w-7xl mt-20 mx-auto">
+    <div className="max-w-70xl mt-20 mx-auto">
       <div className="flex flex-col items-center relative z-10">
         <h1 className={`text-4xl max-w3xl text-center leading-snug mb-12 ${poppins.className}`}>
           <Image
