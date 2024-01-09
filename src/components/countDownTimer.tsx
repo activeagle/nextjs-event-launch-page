@@ -3,16 +3,16 @@ import { type Framework } from "@/utils/frameworkUtils";
 import { useState, useEffect } from "react";
 import { TimeUnit } from "./timeUnits";
 
-export const countDownTimer = ({ 
+export const CountDownTimer = ({ 
     currentFramework, 
 } : { 
     currentFramework: Framework;
 }) => {
-    const [countdown, setCountdown] = useState(calculateTimeToEvent());
+    const [countdown, setCountDown] = useState(calculateTimeToEvent());
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            setCountdown(calculateTimeToEvent())
+            setCountDown(calculateTimeToEvent())
         }, 1000)
 
         return () => clearInterval(intervalId);
