@@ -33,22 +33,25 @@ export default function Page() {
 
   return (
     <main>
+        {/* Background Color */}
       <div
-      className={cn("fixed inset-0 transtition-color delay-100 duration-700 opacity-30",
-      {
-        "bg-purple-300": currentFramework === "qwik",
-        "bg-sky-300": currentFramework === "safari",
-        "bg-yellow-300": currentFramework === "chrome",
-        "bg-teal-300": currentFramework === "tailwind",
-        "bg-blue-300": currentFramework === "react",
-        "bg-green-300": currentFramework === "vue",
-        "bg-orange-300": currentFramework === "svelte",
-        "bg-red-300": currentFramework === "mobile",
-        "bg-neutral-300": currentFramework === "desktop",
-      }  
+      className={cn(
+        "fixed inset-0 transtition-color delay-100 duration-700 opacity-30",
+        {
+            "bg-purple-300": currentFramework === "qwik",
+            "bg-sky-300": currentFramework === "safari",
+            "bg-yellow-300": currentFramework === "chrome",
+            "bg-teal-300": currentFramework === "tailwind",
+            "bg-blue-300": currentFramework === "react",
+            "bg-green-300": currentFramework === "vue",
+            "bg-orange-300": currentFramework === "svelte",
+            "bg-red-300": currentFramework === "mobile",
+            "bg-neutral-300": currentFramework === "desktop",
+        }  
       )}
       />
 
+      {/* Gradient */}
       <Image
         width={1200}
         height={1200}
@@ -58,22 +61,27 @@ export default function Page() {
         src={assets.gradient}  
       />
 
+        {/* Grid */}
       <div
-        className="fixed inset-0 opacity-50"
+        className="fixed inset-0 opacity-30"
         style={{
           backgroundImage: `url(${assets.square})`,
           backgroundSize: "30px",
         }}
       />
       
+      {/* Reveal */}
       <div
-      className={cn("bg-black fixed inset-0 transtition-opacity duration-[1500ms]",
-      !showBackground ? "opacity-100" : "opacity-0"
+        className={cn(
+          "bg-black fixed inset-0 transtition-opacity duration-[300ms]",
+        !showBackground ? "opacity-10" : "opacity-0"
       )}
     />
 
+    {/* Content */}
     <div className="max-w-70xl mt-20 mx-auto">
       <div className="flex flex-col items-center relative z-10">
+        {/* Heading */}
         <h1 className={`text-4xl max-w3xl text-center leading-snug mb-12 ${poppins.className}`}>
           <Image
             alt="Figma Logo"
@@ -82,8 +90,7 @@ export default function Page() {
             width="50"
             height="50"
           />
-          to <FrameworkRotation currentFramework={currentFramework}/> will <span>never</span> be the same again
-          {/* to will <span>never</span> be the same again */}
+          to <FrameworkRotation currentFramework={currentFramework}/> will <span>Never</span> be the same again
         </h1>
       </div>
     </div>
