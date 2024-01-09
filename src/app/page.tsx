@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { cn } from "@/utils/tailwindUtils";
 import { Poppins } from "next/font/google";
 import { FrameworkRotation } from "@/components/frameworkRotation";
+import { countDownTimer } from "@/components/countDownTimer";
 
 const poppins = Poppins ({
   weight: "700",
@@ -73,7 +74,7 @@ export default function Page() {
       {/* Reveal */}
       <div
         className={cn(
-          "bg-black fixed inset-0 transtition-opacity duration-[300ms]",
+          "text-black fixed inset-0 transtition-opacity duration-[300ms]",
         !showBackground ? "opacity-10" : "opacity-0"
       )}
     />
@@ -90,8 +91,61 @@ export default function Page() {
             width="50"
             height="50"
           />
-          to <FrameworkRotation currentFramework={currentFramework}/> will <span>Never</span> be the same again
+          to <FrameworkRotation currentFramework={currentFramework} /> will{" "}
+            <span 
+                className={cn("transition-colors duration-200", {
+                    "text-purple-300": currentFramework === "qwik",
+                    "text-sky-300": currentFramework === "safari",
+                    "text-yellow-300": currentFramework === "chrome",
+                    "text-teal-300": currentFramework === "tailwind",
+                    "text-blue-300": currentFramework === "react",
+                    "text-green-300": currentFramework === "vue",
+                    "text-orange-300": currentFramework === "svelte",
+                    "text-red-300": currentFramework === "mobile",
+                    "text-neutral-300": currentFramework === "desktop",
+            })}
+          >Never</span>{" "} be the same again
         </h1>
+
+        {/* Description */}
+        <p className="mb-8">
+            <span className="text-gray-300">
+                Join Us for and AI launch with
+            </span>
+            <Image
+                alt="Builder.io logo"
+                className="inline-block ml-1 -mt-1"
+                height={20}
+                width={100}
+                src={assets.builder}
+            />
+            {" + "}
+            <Image
+                alt="Figma logo"
+                className="inline-block mx-1"
+                height={20}
+                width={55}
+                src={assets.figmatwo}
+            />
+        </p>
+        <div className="mb-8 text-black">
+            <button 
+                className={cn(
+                    "text-black px-6 py-3 rounded-md text-small font-semibold transtition-colors duration-200",
+                    {
+                        "bg-sky-300": currentFramework === "safari",
+                        "bg-yellow-300": currentFramework === "chrome",
+                        "bg-teal-300": currentFramework === "tailwind",
+                        "bg-blue-300": currentFramework === "react",
+                        "bg-green-300": currentFramework === "vue",
+                        "bg-orange-300": currentFramework === "svelte",
+                        "bg-red-300": currentFramework === "mobile",
+                        "bg-neutral-300": currentFramework === "desktop",
+                    })}>
+                Claim Ticket
+            </button>
+        </div>
+        <countDownTimer currentFramework={currentFramework}/>
       </div>
     </div>
 
