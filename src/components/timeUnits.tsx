@@ -7,7 +7,7 @@ export const TimeUnit = ({
 }: {
     label: string;
     value: number;
-    currentFramework: Framework
+    currentFramework: Framework;
 }) => {
     return (
     <div className="flex flex-col">

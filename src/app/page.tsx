@@ -133,6 +133,7 @@ export default function Page() {
                 className={cn(
                     "text-black px-6 py-3 rounded-md text-small font-semibold transtition-colors duration-200",
                     {
+                        "bg-purple-300": currentFramework === "qwik",
                         "bg-sky-300": currentFramework === "safari",
                         "bg-yellow-300": currentFramework === "chrome",
                         "bg-teal-300": currentFramework === "tailwind",
@@ -145,7 +146,10 @@ export default function Page() {
                 Claim Ticket
             </button>
         </div>
-        <countDownTimer currentFramework={currentFramework}/>
+        {/* <countDownTimer currentFramework={currentFramework}/> */}
+        {/* <countDownTimer/> */}
+        {/* <countDownTimer currentFramework={currentFramework}/> */}
+        {/* <countDownTimer/> */}
       </div>
     </div>
 

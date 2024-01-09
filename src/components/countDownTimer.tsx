@@ -6,13 +6,13 @@ import { TimeUnit } from "./timeUnits";
 export const countDownTimer = ({ 
     currentFramework, 
 } : { 
-    currentFramework: Framework
+    currentFramework: Framework;
 }) => {
     const [countdown, setCountdown] = useState(calculateTimeToEvent());
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            setCountdown(CalculateTimeToEvent())
+            setCountdown(calculateTimeToEvent())
         }, 1000)
 
         return () => clearInterval(intervalId);
