@@ -18,14 +18,14 @@ export const CountDownTimer = ({
         return () => clearInterval(intervalId);
     }, []);
 
-    return <div className="flex gap-[10px]">
+    return <div className="flex gap-[15px]">
         <TimeUnit
             label="DAYS"
             value={countdown.days}
             currentFramework={currentFramework}
         />
          <TimeUnit
-            label="Hours"
+            label="HOURS"
             value={countdown.hours}
             currentFramework={currentFramework}
         />

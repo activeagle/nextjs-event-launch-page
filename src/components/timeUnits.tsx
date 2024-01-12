@@ -1,6 +1,6 @@
 import { Framework } from "@/utils/frameworkUtils";
 import { cn } from "@/utils/tailwindUtils";
-import { NumberRotation } from "./numberRotation";
+// import { NumberRotation } from "./numberRotation";
 
 export const TimeUnit = ({
     label, value, currentFramework
@@ -11,8 +11,8 @@ export const TimeUnit = ({
 }) => {
     return (
     <div className="flex flex-col">
-        <div className="text-white text-3xl font-semibold">{value}</div>
-            <NumberRotation number={value}/>
+        <div className="text-white text-3xl font-semibold ">{value}</div>
+            {/* <NumberRotation number={value}/> */}
             <div className={cn("text-[8px] font-medium",
             {
                 "text-sky-300": currentFramework === "safari",

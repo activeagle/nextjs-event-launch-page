@@ -2,11 +2,12 @@
 import Image from "next/image";
 import { assets } from "@/utils/assetUtils";
 import { type Framework, frameworks } from "@/utils/frameworkUtils";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { cn } from "@/utils/tailwindUtils";
 import { Poppins } from "next/font/google";
 import { FrameworkRotation } from "@/components/frameworkRotation";
 import { CountDownTimer } from "@/components/countDownTimer";
+import { Cursor } from "@/components/cursor";
 
 const poppins = Poppins ({
   weight: "700",
@@ -17,6 +18,7 @@ export default function Page() {
 
   const [currentFramework, setcurrentFramework] = useState<Framework>(frameworks[0])
   const [showBackground, setShowBackground] = useState(false)  
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     let currentIndex = 0;
@@ -104,7 +106,7 @@ export default function Page() {
                     "text-red-300": currentFramework === "mobile",
                     "text-neutral-300": currentFramework === "desktop",
             })}
-          >Never</span>{" "} be the same again
+          >Never</span> be the same again
         </h1>
 
         {/* Description */}
@@ -130,6 +132,7 @@ export default function Page() {
         </p>
         <div className="mb-8 text-black">
             <button 
+                ref={buttonRef}
                 className={cn(
                     "text-black px-6 py-3 rounded-md text-small font-semibold transtition-colors duration-200",
                     {
@@ -149,7 +152,7 @@ export default function Page() {
         <CountDownTimer currentFramework={currentFramework}/>
       </div>
     </div>
-
+    <Cursor buttonRef={buttonRef}/>
     </main>
   );
 }
