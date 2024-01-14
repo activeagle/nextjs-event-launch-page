@@ -152,6 +152,7 @@ export default function Page() {
         <CountDownTimer currentFramework={currentFramework}/>
       </div>
     </div>
+    {/* <Cursor buttonRef={buttonRef}/> */}
     <Cursor buttonRef={buttonRef}/>
     </main>
   );

@@ -20,7 +20,7 @@ export const Cursor = ({buttonRef}: {buttonRef: RefObject<HTMLButtonElement>}) =
             setCursorPosition({ x, y });
 
             await new Promise((resolve) => setTimeout(resolve, 1000));
-            a
+            
             const newY = y + 150;
             setCursorPosition({ x, y: newY });
 
@@ -43,5 +43,4 @@ export const Cursor = ({buttonRef}: {buttonRef: RefObject<HTMLButtonElement>}) =
             // width={80}
             // height={50}
         />
-    )
 };
